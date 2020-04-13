@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css"></link>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Loading your script file...</h1>
+    <script src="loadScript.js"></script>
+
+    <script>
+      var audio;
+      
+      function playAudio(audioName) {
+        stopAudio();
+        audio = new Audio(audioName);
+        audio.play();
+      }
+
+      function stopAudio(){
+        if(audio){
+          audio.pause();
+        }
+      }
+
+      function disableButton(){
+          button = document.getElementById('continue-button');
+          button.setAttribute('onclick', "");
+          button.setAttribute('class', 'button-disabled');
+      }
+
+      function enableButton(){
+          button = document.getElementById('continue-button');
+          button.setAttribute('onclick', "revealNext()");
+          button.setAttribute('class', 'button-enabled');
+      }
+
+      function revealNext() {
+      //console.log(document.querySelector(".story-bubble-hidden"));
+      line = document.querySelector(".story-bubble-hidden");
+      stopAudio();
+      if(line){
+          line.setAttribute('class', 'story-bubble-revealed');
+          disableButton();
+          audioHtml = line.firstChild;
+          if(audioHtml){
+            audioHtml.click();
+          }
+          // enable button after audio clip finishes playing
+          setTimeout(enableButton(), 2000)
+      }else{
+          console.log("All lines revealed. Button should be permanently disabled")
+      }
+    }
+    </script>
+    <div class="bottom-bar">
+        <button id="continue-button" class="button-enabled" onclick="revealNext()">Continue</button>
+
+      </div>
+    
+    
+  </body>
+</html>

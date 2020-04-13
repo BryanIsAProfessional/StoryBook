@@ -1,0 +1,95 @@
+.html,
+.body {
+  background-color: black;
+}
+.button-enabled {
+  background-color: #4caf50;
+}
+.button-disabled {
+  background-color: rgb(255, 8, 0);
+}
+.button-enabled,
+.button-disabled {
+  position: fixed;
+  bottom: 4vh;
+  left: 4vh;
+}
+
+.story-title {
+  font-weight: bold;
+  text-align: center;
+  font: 40px din-round, sans-serif;
+}
+
+.story-text {
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font: 18px din-round, sans-serif;
+}
+.story-audio {
+  float: left;
+  height: 40px;
+  width: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* .bottom-bar {
+  position: fixed;
+  height: 15vh;
+  width: 100vw;
+  margin-bottom: 15vh;
+  background-color: blue;
+} */
+
+.story-container {
+  margin-left: 20vw;
+  margin-right: 20vw;
+  position: relative;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.68;
+  background-color: #ffd900;
+}
+
+.hidden,
+.revealed {
+  margin: 30px;
+  font: 19px din-round, sans-serif;
+  display: inline-block;
+  position: relative;
+}
+
+.story-bubble-hidden {
+  visibility: hidden;
+  position: relative;
+  border-radius: 0.4em;
+  margin: 20px;
+}
+
+.story-bubble-revealed {
+  visibility: visible;
+  position: relative;
+  background: #00aabb;
+  border-radius: 0.4em;
+  margin: 20px;
+}
+
+.story-bubble-revealed:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 19px solid transparent;
+  border-right-color: #00aabb;
+  border-left: 0;
+  border-bottom: 0;
+  margin-top: -9.5px;
+  margin-left: -19px;
+}
